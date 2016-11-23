@@ -17,13 +17,13 @@ print(c_pmf(n, expected))
 #benchmark
 ?benchmark
 
-pmf_scalar <- function(k, lambda) {
+pmf <- function(k, lambda) {
   return(exp(k * log(lambda) - lambda - lgamma(k+1)))
 }
 
 results = list(
   base_r = benchmark(yr <- dpois(n, expected), replications = 1000)$elapsed,
-  custom_r = benchmark(yr <- pmf_scalar(n, expected), replications = 1000)$elapsed,
+  custom_r = benchmark(yr <- pmf(n, expected), replications = 1000)$elapsed,
   custom_cpp = benchmark(yc <- c_pmf(n, expected), replications = 1000)$elapsed
 )
 

@@ -2,10 +2,9 @@ source('output.R')
 library(rbenchmark)
 
 # https://cran.r-project.org/view=Distributions
-pmf_scalar <- function(k, lambda) {
+pmf <- function(k, lambda) {
   return(exp(k * log(lambda) - lambda - lgamma(k+1)))
 }
-pmf <- Vectorize(pmf_scalar)
 
 n <- 5000
 p <- (51/100)
