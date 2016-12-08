@@ -9,7 +9,7 @@ plot_prob <- function(x, y) {
 }
 
 print_prob <- function(p) {
-  print(paste("Probability of six girls at the bus stop: ", 
+  print(paste("Probability of all girls at the bus stop: ", 
               format(p * 100, digits=4), 
               "%", 
               sep=""))

@@ -9,7 +9,9 @@ expected <- n * p
 outcomes <- 0:n
 
 yp <- dpois(outcomes, expected)
+yp <- yp / sum(yp)  # you could normalize, since p > 6 = 0
 dfp <- data.frame(x=outcomes, y=yp, name="Poisson")
+
 
 yb <- dbinom(x=outcomes, size=n, prob=p)
 dfb <- data.frame(x=outcomes, y=yb, name="Binom")

@@ -1,6 +1,8 @@
 source('output.R')
 
 # https://en.wikipedia.org/wiki/Poisson_distribution#Definition
+# lambda is the mean, k is the proposed outcomes
+# result is a probability
 pmf <- function(k, lambda) {
   return(((lambda ** k) * exp(-lambda)) / factorial(k))
 }
@@ -21,3 +23,5 @@ outcomes <- 0:n
 prob <- sapply(outcomes, function(x){pmf(x, expected)})
 
 print_plot(outcomes, prob)
+print('sum of outcomes from 0 to 6:')
+print(sum(prob))

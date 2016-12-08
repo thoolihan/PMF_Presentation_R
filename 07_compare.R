@@ -15,5 +15,5 @@ df$y <- dpois(outcomes, expected)
 df$y_custom <- pmf(outcomes, expected)
 df$the_diff <- df$y - df$y_custom
 
-print(all.equal(df$y, df$y_custom, tolerance=1e-3))
 print(df)
+print(all.equal(df$y, df$y_custom, tolerance=1e-15))
